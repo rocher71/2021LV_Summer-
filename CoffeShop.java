@@ -44,7 +44,7 @@ public class CoffeShop {
 			System.out.println(Menu.get(idx).ingred2 + "을(를) 넣는다.");
 		}
 		
-		if(!Menu.get(idx).fin.equals("")) //ingred2 가 비어있지 않으면
+		if(!Menu.get(idx).fin.equals("")) //fin, 즉 최종단계가 비어있지 않으면
 		{
 			System.out.println(Menu.get(idx).fin);
 		}
