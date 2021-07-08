@@ -1,6 +1,12 @@
 import java.util.Scanner;
 import java.util.Vector;
 
+/*
+ * 기능은 모두 구현했습니다!
+ * 다만 사용성을 높이겠다는 생각에 Beverage 클래스를 만들어서 코드를 썼는데, 
+ * 다 만들고 나서 보니 노션에서 공지해주신 함수를 많이 활용하지는 못한것 같습니다....!
+ */
+
 class Beverage
 {
 	String name = "";
@@ -30,12 +36,12 @@ public class CoffeShop {
 	
 	static void print(int idx)
 	{
-		System.out.println(Menu.get(idx).liquid + "을(를) 넣는다");
-		System.out.println(Menu.get(idx).ingred1 + "을(를) 넣는다");
+		System.out.println(Menu.get(idx).liquid + "을(를) 넣는다.");
+		System.out.println(Menu.get(idx).ingred1 + "을(를) 넣는다.");
 		
 		if(!Menu.get(idx).ingred2.equals("")) //ingred2 가 비어있지 않으면
 		{
-			System.out.println(Menu.get(idx).ingred2 + "을(를) 넣는다");
+			System.out.println(Menu.get(idx).ingred2 + "을(를) 넣는다.");
 		}
 		
 		if(!Menu.get(idx).fin.equals("")) //ingred2 가 비어있지 않으면
@@ -55,9 +61,9 @@ public class CoffeShop {
 		Beverage hotLatte = new Beverage("카페라떼(hot)", "우유", "에스프레소", "", "");
 		Beverage iceLatte = new Beverage("카페라떼(ice)", "우유", "에스프레소", "얼음", "");
 		Beverage hotVanLatte = new Beverage("바닐라라떼(hot)", "우유", "에스프레소", "바닐라 시럽", "");
-		Beverage iceVanLatte = new Beverage("바닐라라떼(ice)", "우유", "에스프레소", "바닐라 시럽", "얼음을 넣는다");
-		Beverage strSmoothie = new Beverage("딸기 스무디", "우유", "딸기", "", "믹서기를 이용해 섞는다");
-		Beverage yogSmoothie = new Beverage("요거트 스무디", "우유", "요거트", "", "믹서기를 이용해 섞는다");
+		Beverage iceVanLatte = new Beverage("바닐라라떼(ice)", "우유", "에스프레소", "바닐라 시럽", "얼음을 넣는다.");
+		Beverage strSmoothie = new Beverage("딸기 스무디", "우유", "딸기", "", "믹서기를 이용해 섞는다.");
+		Beverage yogSmoothie = new Beverage("요거트 스무디", "우유", "요거트", "", "믹서기를 이용해 섞는다.");
 		Beverage iceTea = new Beverage("아이스티", "물", "아이스티 분말", "얼음", "");
 		
 		//Vector<Beverage> Menu = new Vector<>();
@@ -79,6 +85,7 @@ public class CoffeShop {
 		{
 			System.out.println(i.name);
 		}
+		System.out.println();
 		
 		
 		Scanner sc = new Scanner(System.in);
@@ -90,7 +97,7 @@ public class CoffeShop {
 		
 		if(orderSplit.length == 3)
 		{
-			orderMenuStr = orderSplit[0] + orderSplit[1];
+			orderMenuStr = orderSplit[0] + " " + orderSplit[1];
 			cmd = orderSplit[2];
 		}
 		else if(orderSplit.length == 2)
@@ -102,7 +109,7 @@ public class CoffeShop {
 		
 		int _idx = -1;
 		
-		for(int i=0; i<7; i++)
+		for(int i=0; i<9; i++)
 		{
 			if(orderMenuStr.equals(Menu.get(i).name))
 			{
@@ -117,7 +124,7 @@ public class CoffeShop {
 			
 		
 			//int idx = Menu.indexOf(orderMenuStr);
-			System.out.println(_idx);
+			//System.out.println(_idx);
 			print(_idx);
 			
 		}
@@ -127,7 +134,7 @@ public class CoffeShop {
 			{
 				for(Beverage i : Menu)
 				{
-					if(i.liquid.equals("우유")) //우유가 들어가지 않는 음료 출력
+					if(i.liquid.equals("우유") && i.ingred1.equals("에스프레소")) //우유가 들어가지 않는 음료 출력
 					{
 						System.out.println(i.name);
 					}
